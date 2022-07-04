@@ -12,7 +12,7 @@ USER minion
 WORKDIR /usr/app
 
 # Clone the source code and configure workspace
-COPY . /usr/app
+COPY --chown=minion . /usr/app
 
 # build
 RUN npx lerna bootstrap --ci
