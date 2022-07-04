@@ -8,10 +8,6 @@ RUN yum install tar -y
 RUN curl --silent --location https://rpm.nodesource.com/setup_14.x | bash -
 RUN yum -y install nodejs
 
-# Create a Non root user
-RUN usermod -a -G minion root
-# RUN chown minion:minion -R /usr/app
-
 USER minion
 
 RUN mkdir ~/.npm-global
