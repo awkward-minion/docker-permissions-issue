@@ -4,7 +4,7 @@ FROM amazonlinux:2
 # Create user
 RUN yum install -y shadow-utils && yum clean all && useradd minion
 
-# Install NodeJS and dependencies
+# Install NodeJS
 RUN curl --silent --location https://rpm.nodesource.com/setup_14.x | bash -
 RUN yum -y install nodejs
 RUN npm i lerna@5.1.6 -g
@@ -15,12 +15,12 @@ USER minion
 
 WORKDIR /usr/app
 
-# Clone the source code with user permissions
+# Clone the source code and configure workspace
 COPY --chown=minion . /usr/app
 
 # build
 RUN npm install
-RUN lerna bootstrap --hoist
+RUN lerna bootstrap --hoist --ci
 RUN lerna run build
 RUN lerna run build-exe
 
