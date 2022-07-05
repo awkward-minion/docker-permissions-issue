@@ -13,8 +13,7 @@ Thankyou [Aankhen](https://github.com/Aankhen) for helping me
 ```
 
 ## Build
-sh
-```
+
 - This will build remix-app and its dependencies only
 
 ```bash
