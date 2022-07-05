@@ -1,3 +1,3 @@
 # !bin/bash
 
-./packages/api/express-example
+/usr/app/packages/api/express-example
