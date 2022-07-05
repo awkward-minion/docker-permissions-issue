@@ -1,12 +1,16 @@
 # Must be linux
 FROM amazonlinux:2
 
-# Install NodeJS
+# Create user
 RUN yum install -y shadow-utils && yum clean all && useradd minion
-RUN yum install tar -y
+
+# Install NodeJS
 RUN curl --silent --location https://rpm.nodesource.com/setup_14.x | bash -
 RUN yum -y install nodejs
+RUN npm i lerna@5.1.6 -g
+RUN npm i pkg@5.7.0 -g
 
+# Switch user
 USER minion
 
 WORKDIR /usr/app
@@ -15,8 +19,11 @@ WORKDIR /usr/app
 COPY --chown=minion . /usr/app
 
 # build
-RUN npx lerna bootstrap --ci
-RUN npx lerna run build --concurrency=15
+RUN npm install
+RUN lerna bootstrap --hoist --ci
+RUN lerna run build
+RUN lerna run build-exe
 
+# TODO: multistage builds 
 # launch or run the application
-CMD ["sh","/usr/app/scripts/dev/user_data.sh"]
+CMD ["sh","/usr/app/user_data.sh"]

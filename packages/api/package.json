@@ -1,0 +1,21 @@
+{
+    "name": "express-example",
+    "private": true,
+    "license": "ISC",
+    "bin": "index.js",
+    "dependencies": {
+      "express": "4.15.2"
+    },
+    "scripts": {
+        "build-exe": "pkg ."
+    },
+    "pkg": {
+      "assets": [
+        "views/**/*"
+      ],
+      "targets": [
+        "linux"
+      ]
+    }
+  }
+  
