@@ -24,3 +24,10 @@ sh
 ```bash
     lerna run build-exe
 ```
+
+## Docker
+
+```bash
+docker build  -t monorepo-local-test .
+docker run  -p 8080:8080 monorepo-local-test
+```
