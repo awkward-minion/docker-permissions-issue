@@ -3,7 +3,7 @@
 This monorepo uses lerna for build and package management, contains a remix application and a node.js API.
 This illustrates usage of `pkg` and `docker` 
 
-Thankyou @Aankhen for helping me 
+Thankyou [Aankhen](https://github.com/Aankhen) for helping me 
 
 ## Installtion
 
