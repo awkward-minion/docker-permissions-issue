@@ -2,6 +2,7 @@
   "name": "remixapp",
   "private": true,
   "sideEffects": false,
+  "bin": "build/index.js",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
@@ -37,5 +38,19 @@
         ]
       }
     }
+  },
+  "pkg": {
+    "scripts": [
+      "public/build/**/**.js"
+
+    ],
+    "assets": [
+      "public"
+    ],
+    "output": "builds",
+    "targets": [
+      "linux"
+    ],
+    "outputPath": "builds"
   }
 }

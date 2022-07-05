@@ -1,1 +1,3 @@
-echo "Hello world"
+# !bin/bash
+
+./packages/api/express-example
